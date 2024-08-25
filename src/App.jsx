@@ -49,7 +49,7 @@ const WeatherDetails = (props) => {
 
 function App() {
   const [text, setText] = useState("Chennai");
-  const [icon, setIcon] = useState(snow); // Update this based on weather conditions
+  const [icon, setIcon] = useState(snow); 
   const [temp, setTemp] = useState(0);
   const [city, setCity] = useState("Coimbatore");
   const [country, setCountry] = useState("IN");
@@ -72,11 +72,11 @@ function App() {
         setProcess(false);
         return;
       }
-      setCityNotFound(false);
+      setCityNotFound(false); 
       setHumidity(data.main.humidity);
       setCity(data.name);
       setWind(data.wind.speed);
-      setTemp(Math.floor(data.main.temp)); // Temperature is already in Celsius
+      setTemp(Math.floor(data.main.temp));
       setCountry(data.sys.country);
       setLat(data.coord.lat);
       setLog(data.coord.lon);
@@ -127,7 +127,7 @@ function App() {
             onChange={handle}
             onKeyDown={handleKeyDown}
           />
-          <img src={search} alt="Search Icon" className='search-icon' />
+          <img src={search} alt="Search Icon" className='search-icon' onClick={getWeatherDetails} />
         </div>
         {cityNotFound ? (
           <div className="error">City not found. Please try again.</div>
